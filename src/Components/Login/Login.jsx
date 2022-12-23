@@ -68,7 +68,7 @@ export default function Login() {
       <div className="container">
         <div className="row">
    
-        <div className="w-75 m-auto py-5">
+        <div className="w-50 h-75 m-auto py-5">
 
           {apiError && <div className='alert alert-danger'>{apiError}</div>}
           <form onSubmit={(e) => register(e)} >

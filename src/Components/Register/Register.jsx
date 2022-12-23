@@ -68,7 +68,7 @@ export default function Register() {
       <div className="container">
         <div className="row">
       
-        <div className="w-75 m-auto py-3">
+        <div className="w-50 m-auto py-3">
 
           {apiError && <div className='alert alert-danger'>{apiError}</div>}
           <form onSubmit={(e) => register(e)} >
