@@ -34,7 +34,7 @@ export default function Register() {
       if (data.message == "success") {
         setisLoading(false);
         setapiError(null);
-        Navigate("/home");
+        Navigate("/");
       } else {
         setapiError(data.message)
         setisLoading(false)
@@ -67,16 +67,16 @@ export default function Register() {
     <>
       <div className="container">
         <div className="row">
-        </div>
-        <div className="w-75 m-auto py-5">
+      
+        <div className="w-75 m-auto py-3">
 
           {apiError && <div className='alert alert-danger'>{apiError}</div>}
           <form onSubmit={(e) => register(e)} >
-            <div className="input-data my-2">
+            <div className="input-data reg my-1">
               <label htmlFor="first_name" >First Name</label>
               <input onChange={(e) => getDataUser(e)}
                 type="text"
-                className="form-control my-2"
+                className="form-control my-1"
                 name="first_name"
               />
             </div>
@@ -84,11 +84,11 @@ export default function Register() {
               {validationError.filter(ele => ele.context.label == "first_name")[0]?.message}
 
             </div>
-            <div className="input-data my-2">
+            <div className="input-data my-1">
               <label htmlFor="last_name">Last Name</label>
               <input
                 type="text"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="last_name"
               />
@@ -97,11 +97,11 @@ export default function Register() {
               {validationError.filter(ele => ele.context.label == "last_name")[0]?.message}
 
             </div>
-            <div className="input-data my-2">
+            <div className="input-data my-1">
               <label htmlFor="age">Age</label>
               <input
                 type="number"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="age"
               />
@@ -110,11 +110,11 @@ export default function Register() {
               {validationError.filter(ele => ele.context.label == "age")[0]?.message}
 
             </div>
-            <div className="input-data my-2">
+            <div className="input-data my-1">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="email"
               />
@@ -123,11 +123,11 @@ export default function Register() {
               {validationError.filter(ele => ele.context.label == "email")[0]?.message}
 
             </div>
-            <div className="input-data my-2">
+            <div className="input-data my-1">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="password"
               />
@@ -136,13 +136,13 @@ export default function Register() {
               {validationError.filter(ele => ele.context.label == "password")[0]?.message}
 
             </div>
-            <button className="btn login my-3 float-end">
+            <button className="btn login my-2 float-end">
               {isLoading ? <i className='fa fa-spinner fa-spin'></i> : "signup"}
             </button>
             <div className="clear-fix"></div>
           </form>
         </div>
-
+        </div>
       </div>
     </>
   )
