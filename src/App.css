@@ -1,38 +1,26 @@
-.App {
-  text-align: center;
+import Alert from 'react-bootstrap/Alert';
+
+function LinksExample() {
+  return (
+    <>
+      {[
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'light',
+        'dark',
+      ].map((variant) => (
+        <Alert key={variant} variant={variant}>
+          This is a {variant} alert with{' '}
+          <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
+          you like.
+        </Alert>
+      ))}
+    </>
+  );
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+export default LinksExample;
