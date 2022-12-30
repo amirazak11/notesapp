@@ -65,54 +65,49 @@ export default function Login() {
   };
   return (
     <>
-      <div className="container">
-        <div className="row">
-   
-        <div className="w-50 h-75 m-auto py-5">
+     <div className="width-form m-auto mt-5  ">
 
+      <div className="container height-form  ">
+        <div className="row ">
+      
+       
           {apiError && <div className='alert alert-danger'>{apiError}</div>}
           <form onSubmit={(e) => register(e)} >
 
-            <div className="input-data my-2">
-              <label htmlFor="email" placeholder='Enter your email'>Email</label>
+       
+            <div className="input-data ">
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="email"
               />
             </div>
-            <div className={validationError.filter(ele => ele.context.label == "email")[0] ? "alert alert-danger" : ""}>
+            <div className={validationError.filter(ele => ele.context.label == "email")[0] ? "text-danger width-danger" : "width-danger"}>
               {validationError.filter(ele => ele.context.label == "email")[0]?.message}
 
             </div>
-            <div className="input-data my-2">
+            <div className="input-data ">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
-                className="form-control my-2"
+                className="form-control my-1"
                 onChange={(e) => getDataUser(e)}
                 name="password"
               />
             </div>
-            <div className={validationError.filter(ele => ele.context.label == "password")[0] ? "alert alert-danger" : ""}>
+            <div className={validationError.filter(ele => ele.context.label == "password")[0] ? "text-danger width-danger" : "width-danger"}>
               {validationError.filter(ele => ele.context.label == "password")[0]?.message}
 
             </div>
-            <button className="btn login my-3 ">
-              {isLoading ? <i className='fa fa-spinner fa-spin'></i> : "Login"}
+            <button className="btn login my-1 ">
+              {isLoading ? <i className='fa fa-spinner fa-spin'></i> : "signup"}
             </button>
             <div className="clear-fix"></div>
           </form>
         </div>
-
-
-
-
         </div>
-
-
-        
       </div>
     </>
   )

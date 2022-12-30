@@ -4,7 +4,7 @@ import jwt_decode from 'jwt-decode';
 import {AiOutlineEdit} from "react-icons/ai"
 
 export default function UpdateNote(props) {
-    let { note } = props;
+    let { note,getAllnotes } = props;
     let token =localStorage.getItem("token");
     let [Note,setNote]= useState({
         title:"",
@@ -31,9 +31,11 @@ export default function UpdateNote(props) {
             e.preventDefault();
             let { data } = await axios.put(`https://sticky-note-fe.vercel.app/updateNote`,
                 Note);
-    
-            console.log(data);
-        } 
+                if (data.message === "updated") {
+                    getAllnotes()
+                  }
+                };
+                
   return (
     <>
        <a  onClick={() => { getnoteid() }} className="float-end a" data-bs-toggle="modal" data-bs-target="#exampleModal1" >

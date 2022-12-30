@@ -65,9 +65,9 @@ export default function Register() {
   };
   return (
     <>
-     <div className="width-form m-auto ">
+     <div className="width-form m-auto mt-5 ">
 
-      <div className="container height-form ">
+      <div className="container height-form  ">
         <div className="row ">
       
        
