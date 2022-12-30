@@ -47,8 +47,7 @@ export default function Home() {
 
   <div className="card-header">
   <div className="float-start"> {note.title}</div>
-  <UpdateNote/>
-
+  <UpdateNote note={note} userID={userID} getAllnotes={getAllnotes}/>
 
   
   <a onClick={()=>deleteNote(note._id)}

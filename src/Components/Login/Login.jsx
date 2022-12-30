@@ -99,7 +99,7 @@ export default function Login() {
               {validationError.filter(ele => ele.context.label == "password")[0]?.message}
 
             </div>
-            <button className="btn login my-3 float-end">
+            <button className="btn login my-3 ">
               {isLoading ? <i className='fa fa-spinner fa-spin'></i> : "Login"}
             </button>
             <div className="clear-fix"></div>

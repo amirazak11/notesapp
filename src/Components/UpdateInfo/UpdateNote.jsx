@@ -4,11 +4,13 @@ import jwt_decode from 'jwt-decode';
 import {AiOutlineEdit} from "react-icons/ai"
 
 export default function UpdateNote(props) {
-    let{notes,index,getAllnotes}=props;
+    let { note } = props;
     let token =localStorage.getItem("token");
     let [Note,setNote]= useState({
         title:"",
-        desc:""
+        desc:"",
+        token : localStorage.getItem("token"),
+        NoteID : note._id
     })
     function getDataNote(e) {
         let currentNote = { ...Note };
@@ -16,25 +18,25 @@ export default function UpdateNote(props) {
         setNote(currentNote)
       }
 
-      function getnoteid(index){
-        document.querySelector("#exampleModal1 input").value=notes[index].title;
-        document.querySelector("#exampleModal1 textarea").value=notes[index].desc;
-        setNote({...Note,"title":notes[index].title,"desc":notes[index].desc,"NoteID":Note[index]._id});
+      function getnoteid() {
+        document.querySelector("#exampleModal1 input").value = props.note.title;
+        document.querySelector("#exampleModal1 textarea").value = props.note.desc;
+        setNote({ ...Note, "title": props.note.title, "desc": props.note.desc, "NoteID": props.note._id });
 
     }
         console.log(Note)
 
-    async function updateNote(e){
-        e.preventDefault();
-        let  {data}  = await axios.put( `https://sticky-note-fe.vercel.app/updateNote` , 
-              Note);
-      
-        console.log(data);
-    }
+
+        async function updateNote(e) {
+            e.preventDefault();
+            let { data } = await axios.put(`https://sticky-note-fe.vercel.app/updateNote`,
+                Note);
     
+            console.log(data);
+        } 
   return (
     <>
-       <a  onClick={()=>{getnoteid(index)}} className="float-end a" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
+       <a  onClick={() => { getnoteid() }} className="float-end a" data-bs-toggle="modal" data-bs-target="#exampleModal1" >
         <AiOutlineEdit className='icon' />
         </a>
        <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
